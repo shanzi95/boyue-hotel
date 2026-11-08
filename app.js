@@ -159,11 +159,10 @@
       tipsCard.innerHTML = '<div class="empty-tip">暂无提示</div>';
       return;
     }
-    // 虚线分隔位置：从第几段开始另起一组（0 开始计数）。
-    // 2 表示在第 3 段上方画虚线，把"选购特产"和"网络甄别"分开。
-    var GROUP_START = 2;
+    // 第 1 段是天气提醒，单独一组；从第 2 段（购物相关）开始另起一组，中间用虚线分开
+    // 与"山山的推荐"站保持一致（虚线在第 2 段上方）
     var paras = t.paragraphs.map(function (text, i) {
-      var cls = 'tips-p' + (i === GROUP_START ? ' tips-p-group-start' : '');
+      var cls = 'tips-p' + (i === 1 ? ' tips-p-group-start' : '');
       return '<p class="' + cls + '">' + esc(text) + '</p>';
     }).join('');
     tipsCard.innerHTML = paras;

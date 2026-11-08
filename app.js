@@ -58,6 +58,27 @@
     document.body.removeChild(ta);
   }
 
+  /* ---------- 一键拨打 ---------- */
+  // 正常情况 tel: 链接由系统直接调起拨号盘，无需 JS。
+  // 少数微信内置浏览器会拦截 a[href^="tel"]，
+  // 这里兜底：拦不住就交给系统，拦住了就提示号码让客人手动拨。
+  const btnCall = document.getElementById('btnCall');
+  if (btnCall) {
+    btnCall.addEventListener('click', () => {
+      const tel = (btnCall.getAttribute('href') || '').replace(/^tel:/, '');
+      // 记录一次点击（无统计系统时静默失败，不影响拨号）
+      try {
+        if (window.__trackCall) window.__trackCall(tel);
+      } catch (e) {}
+      // 系统没有响应（被内置浏览器拦截）时，给出可手动拨打的提示
+      setTimeout(() => {
+        if (document.visibilityState === 'visible') {
+          showToast('如需拨打：' + tel);
+        }
+      }, 1200);
+    });
+  }
+
   /* ---------- 加载内容 ---------- */
   function loadContent() {
     if (typeof __CONTENT__ !== 'undefined' && __CONTENT__) {

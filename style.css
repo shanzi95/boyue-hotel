@@ -87,8 +87,15 @@ img { max-width: 100%; display: block; }
 .section-title { font-size: 18px; font-weight: 700; margin: 0; letter-spacing: 0.5px; }
 .section-more { font-size: 13px; color: var(--ink-2); }
 
-/* ---------- 对称电话按钮（与"热门景点"标题同一行，左右成对） ---------- */
-.section-head { align-items: center; }
+/* ---------- 一键拨打按钮（跟在微信号按钮后面，尺寸保持不变） ---------- */
+/* 两个按钮等高并排，间距 8px，整体靠右 */
+.topbar-actions {
+  display: flex; align-items: center; gap: 8px;
+  flex: 0 0 auto;
+}
+/* 顶栏高度有限，把微信按钮的上下留白微调，让两个按钮垂直居中对齐；
+   字号、颜色、圆角一律不动，看到的还是原来那个按钮 */
+.topbar .btn-book { padding-top: 6px; padding-bottom: 6px; }
 .btn-call {
   flex: 0 0 auto;
   display: inline-flex; align-items: center; justify-content: center;

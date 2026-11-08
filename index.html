@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://byht.91ss.online" crossorigin />
   <link rel="dns-prefetch" href="https://byht.91ss.online" />
   <link rel="preload" as="image" href="uploads/mountain-circle.webp" fetchpriority="high" />
-  <link rel="stylesheet" href="style.css?v=20261108a" />
+  <link rel="stylesheet" href="style.css?v=20261108b" />
 
 
 <script>
@@ -25,7 +25,13 @@ var __CONTENT__ = {"version": 1, "updatedAt": "2026-07-30T09:04:00.000Z", "site"
         <span class="brand-text">泊悦欢廷</span>
         <span class="brand-sub">· 度假酒店</span>
       </div>
-      <button class="btn-book" id="btnCopyWechat" title="点击复制微信号">PJ091277</button>
+      <div class="topbar-actions">
+        <button class="btn-book" id="btnCopyWechat" title="点击复制微信号">PJ091277</button>
+        <!-- 一键拨打：紧跟在微信号后面，尺寸与原来的电话按钮一致 -->
+        <a class="btn-call" id="btnCall" href="tel:15841277776" aria-label="拨打电话 15841277776">
+          <span class="ic-phone"></span>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -41,10 +47,6 @@ var __CONTENT__ = {"version": 1, "updatedAt": "2026-07-30T09:04:00.000Z", "site"
     <section class="section" id="scenicSection">
       <div class="section-head">
         <h2 class="section-title">热门景点</h2>
-        <!-- 对称电话按钮：与"热门景点"同一行左右成对，点击直接拨打 -->
-        <a class="btn-call" id="btnCall" href="tel:15841277776" aria-label="拨打电话 15841277776">
-          <span class="ic-phone"></span>
-        </a>
       </div>
 
       <!-- 置顶卡片（默认隐藏） -->
